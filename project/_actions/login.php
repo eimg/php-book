@@ -13,7 +13,7 @@ $password = md5($_POST['password']);
 
 $table = new UsersTable(new MySQL());
 
-$user = $table->findByEmailAndPasword($email, $password);
+$user = $table->findByEmailAndPassword($email, $password);
 
 if ($user) {
 

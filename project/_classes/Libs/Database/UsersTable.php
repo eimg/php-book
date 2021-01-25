@@ -47,7 +47,7 @@ class UsersTable
 		return $row ?? false;
 	}
 
-	public function findByEmailAndPasword($email, $password)
+	public function findByEmailAndPassword($email, $password)
 	{
 		$statement = $this->db->prepare("
             SELECT users.*, roles.name AS role, roles.value
