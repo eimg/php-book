@@ -54,16 +54,16 @@ $auth = Auth::check();
 					<td><?= $user->email ?></td>
 					<td><?= $user->phone ?></td>
 					<td>
-						<?php if ($user->value === '1') : ?>
-							<span class="badge bg-secondary">
+						<?php if ($user->role_id === 1) : ?>
+							<span class="badge text-bg-secondary">
 								<?= $user->role ?>
 							</span>
-						<?php elseif ($user->value === '2') : ?>
-							<span class="badge bg-primary">
+						<?php elseif ($user->role_id === 2) : ?>
+							<span class="badge text-bg-primary">
 								<?= $user->role ?>
 							</span>
 						<?php else : ?>
-							<span class="badge bg-success">
+							<span class="badge text-bg-success">
 								<?= $user->role ?>
 							</span>
 						<?php endif ?>
