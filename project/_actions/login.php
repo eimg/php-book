@@ -15,14 +15,26 @@ $table = new UsersTable(new MySQL());
 
 $user = $table->findByEmailAndPassword($email, $password);
 
-if ($user) {
+//if ($user) {
 
-	if ($table->suspended($user->id)) {
-		HTTP::redirect("/index.php", "suspended=1");
-	}
+//	if ($table->suspended($user->id)) {
+//		HTTP::redirect("/index.php", "suspended=1");
+//	}
+//
+//	$_SESSION['user'] = $user;
+//	HTTP::redirect("/profile.php");
+//} else {
+//	HTTP::redirect("/index.php", "incorrect=1");
+//}
 
-	$_SESSION['user'] = $user;
-	HTTP::redirect("/profile.php");
+if ($user){
+    if($user->suspended === 1){
+         HTTP::redirect("/index.php","suspended=1");
+    }else{
+        $_SESSION['user'] = $user;
+    	HTTP::redirect("/profile.php");
+    }
+    
 } else {
-	HTTP::redirect("/index.php", "incorrect=1");
+    HTTP::redirect("/index.php","incorrect=1");
 }
